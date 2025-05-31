@@ -1,2 +1,4 @@
 env_cv/
 data/
+src/detection/__pycache__/
+src/tracking/__pycache__/
