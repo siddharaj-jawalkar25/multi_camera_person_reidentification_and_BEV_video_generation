@@ -32,6 +32,8 @@ def generate_video(path_to_frames, output_video_path, fps):
             print(f"Skipping unreadable image: {img_path}")
             continue
         video.write(frame)
+        # if '0100' in img_path:
+        #     break
 
     # Release everthing
     video.release()

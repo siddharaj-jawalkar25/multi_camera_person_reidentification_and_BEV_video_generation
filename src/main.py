@@ -28,7 +28,7 @@ def process_video(video_path, output_path, camera_name, detector, tracker):
         for track in tracks:
             track_id = track['id']
             x1, y1, x2, y2 = track['bbox']
-
+            print(">>>>>>>>>>>>>>>>> Tracks == ",track)
             cv2. rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.putText(frame, f"ID: {track_id}", (x1, y1-10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
@@ -49,11 +49,11 @@ if __name__ == '__main__':
     detector = YOLODetector()
     tracker = DeepSortTracker()
 
-    track1 = process_video(r'videos\video_001.mp4', r'output\tracking_camera_001.mp4', 'camera 1', detector, tracker)
+    track1 = process_video(r'videos\short_video_001.mp4', r'output\tracking_camera_001.mp4', 'camera 1', detector, tracker)
     with open('output/tracks_camera1.json', 'w') as f1:
         json.dump(track1, f1, indent=2)
     
-    track2 = process_video(r'videos\video_005.mp4', r'output\tracking_camera_005.mp4', 'camera 5', detector, tracker)
+    track2 = process_video(r'videos\short_video_005.mp4', r'output\tracking_camera_005.mp4', 'camera 5', detector, tracker)
     with open('output/tracks_camera5.json', 'w') as f2:
         json.dump(track2, f2, indent=2)
     
